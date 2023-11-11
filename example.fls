@@ -1,8 +1,8 @@
-PWD c:/Users/merts/Repo/presentation
+PWD c:/Users/merts/Repo/thesis-presentation
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/merts/Repo/presentation/example.tex
+INPUT c:/Users/merts/Repo/thesis-presentation/example.tex
 OUTPUT example.log
 INPUT c:/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT c:/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
@@ -488,6 +488,9 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+INPUT c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT c:/texlive/2023/texmf-dist/tex/latex/blindtext/blindtext.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/blindtext/blindtext.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/tools/xspace.sty
@@ -509,12 +512,6 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
-INPUT ./example.out
-INPUT ./example.out
-INPUT example.out
-INPUT example.out
-INPUT ./example.out
-INPUT ./example.out
 OUTPUT example.out
 INPUT c:/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT c:/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -573,18 +570,10 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 INPUT c:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 OUTPUT example.bcf
-INPUT example.bbl
-INPUT ./example.bbl
-INPUT ./example.bbl
-INPUT ./example.bbl
-INPUT example.bbl
 INPUT ./example.nav
 INPUT ./example.nav
 INPUT example.nav
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF.tfm
-INPUT ./example.toc
-INPUT ./example.toc
-INPUT example.toc
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-SemiBold-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-SemiBold-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
@@ -598,8 +587,6 @@ INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Bold-T1-TLF
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Bold-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF--base.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF--base.tfm
 OUTPUT example.vrb
 INPUT ./example.vrb
 INPUT ./example.vrb
@@ -634,6 +621,8 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF--base.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Italic-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Bold-T1-TLF.vf
@@ -695,13 +684,34 @@ OUTPUT example.vrb
 INPUT ./example.vrb
 INPUT ./example.vrb
 INPUT example.vrb
-INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Italic-T1-TLF.vf
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF--base.tfm
+INPUT ./example.vrb
+INPUT ./example.vrb
+INPUT example.vrb
+INPUT ./example.vrb
+INPUT ./example.vrb
+INPUT example.vrb
+OUTPUT example.vrb
+INPUT ./example.vrb
+INPUT ./example.vrb
+INPUT example.vrb
+INPUT ./myfigs/lr flowchart1.png
+INPUT ./myfigs/lr flowchart1.png
+INPUT ./myfigs/lr flowchart1.png
+INPUT ./myfigs/lr flowchart1.png
+INPUT ./myfigs/lr flowchart1.png
+INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF--base.tfm
+OUTPUT example.vrb
+INPUT ./example.vrb
+INPUT ./example.vrb
+INPUT example.vrb
+INPUT ./myfigs/lr flowchart2.png
+INPUT ./myfigs/lr flowchart2.png
+INPUT ./myfigs/lr flowchart2.png
+INPUT ./myfigs/lr flowchart2.png
+INPUT ./myfigs/lr flowchart2.png
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
@@ -718,15 +728,15 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Regular-T1-TLF.vf
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Italic-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF--base.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Italic-T1-TLF.vf
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF--base.tfm
+INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmb8t.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/public/bera/fvmb8t.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmb8r.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT ./figures/thankyou.jpg
 INPUT ./figures/thankyou.jpg
 INPUT ./figures/thankyou.jpg
@@ -737,8 +747,11 @@ INPUT ./example.vrb
 INPUT ./example.vrb
 INPUT example.vrb
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Italic-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF--base.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF.tfm
@@ -748,12 +761,24 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-BoldItalic-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-BoldItalic-T1-TLF--base.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Italic-T1-TLF.tfm
+INPUT c:/texlive/2023/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/fontawesome5/fa5free1regular.tfm
 INPUT ./figures/thankyou.jpg
 INPUT ./figures/thankyou.jpg
 INPUT ./figures/thankyou.jpg
 INPUT ./figures/thankyou.jpg
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/ascender/opensans/OpenSans-Bold-T1-TLF.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Bold-T1-TLF--base.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc
 OUTPUT example.nav
 OUTPUT example.toc
 OUTPUT example.snm
@@ -762,6 +787,7 @@ INPUT ./example.out
 INPUT ./example.out
 INPUT example.run.xml
 OUTPUT example.run.xml
+INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Regular.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/ascender/opensans/OpenSans-BoldItalic.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/ascender/opensans/OpenSans-ExtraBold.pfb

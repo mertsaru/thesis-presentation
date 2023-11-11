@@ -22,7 +22,7 @@
 %	noframesubtitle,	% Disables frame subtitles alltogether and slightly increases frame height
 % Additional style options not completely conforming to the corporate design
 	titlepagedate,		% Shows the date on the titelpage
-%	fancystyle,			% Enables some fancy styles, that are not part of the corporate design specifications (default: off)
+	fancystyle,			% Enables some fancy styles, that are not part of the corporate design specifications (default: off)
 %	progressbar,		% Shows the progressbar in footline (run twice to update progressbar)
 	]{hsmw} 
 
@@ -71,7 +71,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 6) Import additional packages you need, (re-)define macros and create a wonderful latex presentation
-
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setbeamertemplate{caption}{\insertcaption}
 % You can remove this package - it is only needed for the dummy content
 \usepackage{blindtext}
 
@@ -143,49 +145,71 @@
 
 	\section{ML Implementation}
 
-	\begin{frame}[fragile]{Erweitertes Beispiel (Stil: Fakultät CB)}{Mit ein paar zusätzlichen Optionen und Befehlen}
-		\scriptsize
-		\begin{verbatim}
-			\documentclass[aspectratio=169,onlytextwidth,t]{beamer}
-			\usetheme[cb, colormath]{hsmw}
-			
-			\title[Kurztitel für Fußzeile]{Titel der Präsentation für Titelseite}
-			\subtitle{Untertitel für Titelseite}
-			\author{Name Vortragende(r)}
-			\email{E-Mail}
-			\titlegraphic{figures/thankyou.jpg}
+	\begin{frame}[fragile]{ML Implementation}{Interpretation}
+		\begin{columns}
 
-			\begin{document}
-				\begin{frame}{Erste Folie}{Mit Untertitel}
-					Inhalt
-				\end{frame}	
+			\begin{column}[T]{.19\textwidth}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					 & \textbf{$q$} & \textbf{$\neg q$} \\
+					\hline
+					\textbf{$p$} & a & b \\
+					\hline
+					\textbf{$\neg p$} & c & d \\
+					\hline
+					% TODO: add caption \caption{Truth table}
+				\end{tabular}
+			\end{column}
 
-				\appendix
-				\makethankyou
-			\end{document}
-		\end{verbatim}
+			\begin{column}[T]{.19\textwidth}
+				\uncover<3->{
+					\begin{tikzpicture}
+						\draw[->, line width=3mm] (8,-10) -- (10,-10);
+						\end{tikzpicture}
+				}
+			\end{column}
+
+			\begin{column}[T]{.59\textwidth}
+				\uncover<3->{\begin{tabular}{|c|c|c|}
+					\hline
+					 & \textbf{$L(x) = L(w^{x})$} & \textbf{$L(x) \neq L(w^{x})$} \\
+					\hline
+					\textbf{$L(w_{i}) = L(w^{x})$} & a & b \\
+					\hline
+					\textbf{$L(w_{i}) \neq L(w^{x})$} & c & d \\
+					\hline
+					% TODO: add caption \caption{Truth table}
+				\end{tabular}
+				}
+				
+				\vfill
+				
+				\uncover<2->{\begin{itemize}
+					\item $x$: sample
+					\item $w_{i}$: $i$th prototype
+					\item $w_{x}$: winner prototype of sample x
+					\item $L(y)$: label of y
+				\end{itemize}}
+			\end{column}
+
+		\end{columns}
+	\end{frame}
+		
+	\begin{frame}[fragile]{ML Implementation}{Updating learning rates}
+	
+		\centering
+				\includegraphics[width=.4\textwidth]{myfigs/lr flowchart1.png}
+				\captionof{figure}{Learning rate update flowchart part 1}
 	\end{frame}
 
-	\begin{frame}{Anwendungshinweise}{Was es zu beachten gilt}
-		\begin{itemize}
-			\item Für die Verwendung in lokalen TeX-Distributionen oder auch Overleaf geeignet
-
-			\item Verzeichnisstruktur für das Auffinden der Dateien notwendig
-			\begin{itemize}
-				\item Funktionen und Aufbau auf mehrere Quelldateien verteilt
-				\begin{itemize}
-					\item beamerthemehsmw.sty: Optionen, Pakete und Macros (lädt die restlichen Dateien)
-					\item beamerouterthemehsmw.sty: Allgemeine Layout-Einstellungen (Folientitel, Fußzeilen, ...)
-					\item beamerinnerthemehsmw.sty: Inhaltsbezogene Layout-Einstellungen (Titelseite, Aufzählungen, ...)
-					\item beamerfontthemehsmw.sty: Die verwendeten Schriftstile und -größen
-					\item beamercolorthemehsmw*.sty: Das spezifische Farbschema für die einzelnen Elemente (inkl. Fakultätsfarben)
-				\end{itemize}
-
-				\item Unterverzeichnis für zusätzliches Bildmaterial: ./figures/*
-			\end{itemize}
-		\end{itemize}
+	\begin{frame}[fragile]{ML Implementation}{Updating learning rates}
+	
+		\centering
+				\includegraphics[width=.4\textwidth]{myfigs/lr flowchart2.png}
+				\captionof{figure}{Learning rate update flowchart part 2}
 	\end{frame}
 
+	
 	\begin{frame}{Besonderheiten}{Eventuelle Probleme, die gar keine sind}
 		\begin{itemize}
 			\item Bei überlangen (Unter-)Titeln auf der Titelseite und auf den Folien wird bei Bedarf die Schriftgröße heruntergesetzt
@@ -197,47 +221,7 @@
 		\end{itemize}
 	\end{frame}
 
-	\section{Inhalte gestalten}
-
-	\begin{frame}{Eine normale Folie mit Fließtext}{... und einem Untertitel}
-		\blindmathtrue
-		\blindtext
-	\end{frame}
-
-	\begin{frame}[c]{Eine normale Folie vertikal zentriert}{Unter Verwendung der Folien-Option: \texttt{\textbackslash{}begin\{frame\}[c] ... \textbackslash{}end\{frame\}}}
-		\blindmathtrue
-		\blindtext
-	\end{frame}
-
-	\begin{frame}[b]{Eine normale Folie unten ausgerichtet}{Unter Verwendung der Folien-Option: \texttt{\textbackslash{}begin\{frame\}[b] ... \textbackslash{}end\{frame\}}}
-		\blindmathtrue
-		\blindtext
-	\end{frame}
 	
-	\begin{frame}{Eine Folie mit zwei Spalten}{Einfache Mathematik: Mehr Spalten = mehr Platz}
-		\begin{columns}
-			\begin{column}[T]{.5\textwidth}
-				\blindlistlist[3]{itemize}[3]
-			\end{column}
-			\begin{column}[T]{.5\textwidth}
-				\blindlistlist[2]{itemize}[4]
-			\end{column}
-		\end{columns}
-	\end{frame}
-
-	\begin{frame}{Eine Folie mit zwei Spalten}{Auch passend für Abbildungen}
-		\begin{columns}
-			\begin{column}[T]{.5\textwidth}
-				\blindlistlist[3]{itemize}[3]
-			\end{column}
-			\begin{column}[T]{.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{figures/thankyou.jpg}
-				\captionof{figure}{Das Bild der Danke-Seite}
-				\label{fig:thankyou}
-			\end{column}
-		\end{columns}
-	\end{frame}
 
 	\begin{frame}[fragile]{Inhalte absolut positionieren}
 		\begin{itemize}
@@ -290,59 +274,9 @@
 		\vfill
 	\end{frame}
 
-	\section{Benutzerdefinierte Anpassungen}
-
-	\newcommand{\rgb}[1]{\textcolor{hsmw80}{#1}}
-	\newcommand{\cmd}[1]{\rgb{\textbackslash{}#1}}
-	\newcommand{\textto}{\hspace*{0.2ex}\tikz[baseline=-.33em] \draw[-latex] (0,0) to ++(2ex, 0);\hspace*{0.2ex}}
-	\begin{frame}{Zusätzliche, beeinflussbare Macros}{... und deren Abhängigkeiten (zur Feinabstimmung der eigenen Präsentation)}
-		\begin{itemize}
-			\item Option \rgb{hs}, \rgb{cb}, ... oder \rgb{faculty=cb, me, ...} (Farbschema)
-			\begin{itemize}
-				\item \cmd{insertfacultyicon} (Titelseite)
-				\item \cmd{insertfacultyname} (Option \rgb{language}) \textto{} \cmd{institute\{\cmd{insertfacultyname}\}}
-			\end{itemize}
-			\item \cmd{insertthankyoutitle}, \cmd{insertthankyoutext}, \cmd{insertthankyousidebartext}
-			\begin{itemize}
-				\item \cmd{email} \textto{} \cmd{insertemail}
-				\item \cmd{phone} \textto{} \cmd{insertmobilephone}, \cmd{inserttelephone}
-				\item \cmd{office} \textto{} \cmd{insertoffice}
-				\item \cmd{courseofstudies} \textto{} \cmd{insertcourseofstudies}
-				\item \cmd{additional} \textto{} \cmd{insertadditionalsidebar}, \cmd{insertadditional}
-			\end{itemize}
-			\item \cmd{setcurrentspeaker}, \cmd{resetcurrentspeaker} (\cmd{insertshortauthor})
-			\begin{itemize}
-				\item Stern-Version (\cmd{setcurrentspeaker*}) setzt zusätzlich Label (Option \rgb{language})
-				\item \cmd{currentspeaker} (\cmd{currentspeakerlabel}) \textto{} \cmd{insertcurrentspeaker}
-			\end{itemize}
-		\end{itemize}
-	\end{frame}
-
-	\section{FAQ}
-
-	\begin{frame}[c]{FAQ: Häufig gestellte Fragen}{Hier ist noch Platz für Anwendungsfälle oder Antworten auf häufig gestellte Fragen}
-		Es sind alle zum Testen und zur Übermittlung von konstruktivem Feedback eingeladen!
-		\\[\baselineskip]
-		Bei Ideen, Wünschen, Anregungen, Fragen und auch Problemen:
-		\begin{itemize}
-			\item Offizielle LaTeX-GitLab-Gruppe der Hochschule Mittweida:
-			\newline
-			\href{https://git.hs-mittweida.de/hsmw-latex}{git.hs-mittweida.de/hsmw-latex}
-
-			\item Kontaktieren Sie mich gern per E-Mail \href{mailto:schildba@hs-mittweida.de?subject=[LaTeX] Beamer-Vorlage}{schildba@hs-mittweida.de}
-
-			\item Nutzen Sie einen der anderen verfügbaren Kommunikationskanäle
-		\end{itemize}
-	\end{frame}
-
+	
 	\appendix
 	\makebibliography
 	\makethankyou
-
-	\section{\appendixname}
-
-	\begin{frame}{Zusätzliche Folien}{Der Anhang zählt nicht mit zu den regulären Folien}
-		\blindtext
-	\end{frame}
 
 \end{document}
