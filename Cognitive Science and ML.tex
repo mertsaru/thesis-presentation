@@ -139,8 +139,7 @@
 		\end{itemize}
 	
 		\vfill
-		Note: Adapted from “Cognitive Symmetry: Illogical but Rational Biases” by T. Takahashi, M. Nakano, and S. Shinohara, Symmetry Culture and Science. 21. 1-3 p. 7~\cite{tak10}
-		%\url{https://www.researchgate.net/publication/285850238_Cognitive_Symmetry_Illogical_but_Rational_Biases}
+		Note: Adapted from~\cite{tak10}
 	\end{frame}
 
 	\section{ML Implementation}
@@ -148,41 +147,47 @@
 	\begin{frame}[fragile]{ML Implementation}{Interpretation}
 		\begin{columns}
 
-			\begin{column}[T]{.19\textwidth}
-				\begin{tabular}{|c|c|c|}
-					\hline
-					 & \textbf{$q$} & \textbf{$\neg q$} \\
-					\hline
-					\textbf{$p$} & a & b \\
-					\hline
-					\textbf{$\neg p$} & c & d \\
-					\hline
-					% TODO: add caption \caption{Truth table}
-				\end{tabular}
+			\begin{column}[T]{.25\textwidth}
+				\begin{table}
+					
+					\begin{tabular}{|c|c|c|}
+						\hline
+						& \textbf{$q$} & \textbf{$\neg q$} \\
+						\hline
+						\textbf{$p$} & a & b \\
+						\hline
+						\textbf{$\neg p$} & c & d \\
+						\hline
+					\end{tabular}
+					\caption{Co-occurence frequency~\cite{man21}}
+				
+				\end{table}
 			\end{column}
 
-			\begin{column}[T]{.19\textwidth}
+			\begin{column}[T]{.15\textwidth}
 				\uncover<3->{
 					\begin{tikzpicture}
-						\draw[->, line width=3mm] (8,-10) -- (10,-10);
+						\draw[->, line width=3mm] (8,-10) -- (9,-10); % TODO Resize arrow
 						\end{tikzpicture}
 				}
 			\end{column}
 
 			\begin{column}[T]{.59\textwidth}
-				\uncover<3->{\begin{tabular}{|c|c|c|}
-					\hline
-					 & \textbf{$L(x) = L(w^{x})$} & \textbf{$L(x) \neq L(w^{x})$} \\
-					\hline
-					\textbf{$L(w_{i}) = L(w^{x})$} & a & b \\
-					\hline
-					\textbf{$L(w_{i}) \neq L(w^{x})$} & c & d \\
-					\hline
-					% TODO: add caption \caption{Truth table}
-				\end{tabular}
+				\uncover<3->{
+					\begin{table}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							& \textbf{$L(x) = L(w^{x})$} & \textbf{$L(x) \neq L(w^{x})$} \\
+							\hline
+							\textbf{$L(w_{i}) = L(w^{x})$} & a & b \\
+							\hline
+							\textbf{$L(w_{i}) \neq L(w^{x})$} & c & d \\
+							\hline
+						\end{tabular}
+						\caption{ML implementation of the co-occurence frequency table~\cite{man21}}
+					
+					\end{table}
 				}
-				
-				\vfill
 				
 				\uncover<2->{\begin{itemize}
 					\item $x$: sample
@@ -199,17 +204,122 @@
 	
 		\centering
 				\includegraphics[width=.4\textwidth]{myfigs/lr flowchart1.png}
-				\captionof{figure}{Learning rate update flowchart part 1}
+				\captionof{figure}{Learning rate update flowchart part 1~\cite{tak10}}
 	\end{frame}
 
 	\begin{frame}[fragile]{ML Implementation}{Updating learning rates}
 	
 		\centering
 				\includegraphics[width=.4\textwidth]{myfigs/lr flowchart2.png}
-				\captionof{figure}{Learning rate update flowchart part 2}
+				\captionof{figure}{Learning rate update flowchart part 2~\cite{tak10}}
 	\end{frame}
 
+	\begin{frame}{ML Implementation}{Updating learning rates}
+		\vfill
+		\begin{itemize}
+			\item<1->$R_{i}(a_{i},b_{i},c_{i},d_{i},t)$: Causal relationship between events for $i^{\text{th}}$ prototype at time $t$
+			\item<2->$\epsilon_{i}(t) = 1- R_{i}(t)$: Local learning rate of $i^{\text{th}}$ prototype at time $t$
+		\end{itemize}
+		\vfill
+
+	\end{frame}
+
+
+	\section{Optimizers}
 	
+	\begin{frame}[fragile]{Optimizers}{Loose Symmetry (LS)}
+
+		\begin{itemize}
+			
+		\item<1-> $R^{\text{LS}}_{i}(t) = \frac{a_{i}(t) 
+		+ \frac{b_{i}(t)}{b_{i}(t) + d_{i}(t)}d_{i}(t)}
+		{a_{i}(t) 
+		+ \frac{b_{i}(t)}{b_{i}(t) + d_{i}(t)}d_{i}(t) 
+		+ b_{i}(t) 
+		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{3, 7} %TODO: add citation
+		\vspace{10pt}
+		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{3} %TODO: add citation
+		\item <3-> Has better results than other cognitive bias optimizers~\cite{something} %TODO: add citation
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}[fragile]{Optimizers}{Loose Symmetry under Rarity (LSR)}
+
+		\begin{itemize}
+
+		\item<1-> Assumption: The events $p$ and $q$ are small, hence the correlation of any two events is unlikely, $d(t) \rightarrow \infty$~\cite{22} %TODO: add citation
+		\item <2-> Example: The correlation between any random event and you starting you car in the morning~\cite{22} %TODO: add citation
+		\item<3-> $R^{\text{LSR}}_{i}(t) = \lim_{d_{i}(t) \to \infty}R^{\text{LS}}_{i}(t)$
+		\item<4-> $R^{\text{LS}}_{i}(t) = \frac{a_{i}(t) 
+		+ b_{i}(t)}
+		{a_{i}(t) 
+		+ 2b_{i}(t) 
+		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{3} %TODO: add citation
+		\vspace{10pt}
+		\item<5-> Satisfies ?~\cite{something} %TODO: add citation
+		\end{itemize}
+	\end{frame}
+
+	\section{Results}
+
+	% \begin{frame}[fragile]{Results}{Balanced dataset}
+	% 	Dataset: ? dataset~\cite{dataset}
+	% 	\begin{columns}
+			
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 	\end{columns}
+	% \end{frame}
+	
+
+	% \begin{frame}[fragile]{Results}{Imbalanced dataset}
+	% 	Dataset: ? dataset~\cite{dataset}
+	% 	\begin{columns}
+			
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+	% 		\end{column}
+
+	% 	\end{columns}
+	% \end{frame}
+	
+
 	\begin{frame}{Besonderheiten}{Eventuelle Probleme, die gar keine sind}
 		\begin{itemize}
 			\item Bei überlangen (Unter-)Titeln auf der Titelseite und auf den Folien wird bei Bedarf die Schriftgröße heruntergesetzt
@@ -219,59 +329,11 @@
 			\item Sie können diese Texte ggf. anpassen, damit sie nicht skaliert werden müssen
 			\item Sie können den Warnhinweis allerdings auch einfach ignorieren
 		\end{itemize}
-	\end{frame}
 
-	
-
-	\begin{frame}[fragile]{Inhalte absolut positionieren}
-		\begin{itemize}
-			\item Der Koordinatenursprung für ist die obere linke Ecke
-			\item Koordinatensystem in Zentimetern, an Seitenverhältnis 16:9 ausgerichtet
-			\begin{itemize}
-				\item $ 0 \le x \le 16 $
-				\item $ 0 \le y \le 9 $
-			\end{itemize}
-
-			\item Verwendung von \verb!begin{textblock}{breite}(x-pos, y-pos)!...
-		\end{itemize}
-
-		\begin{textblock}{5}(10, 4.5)
-			\scriptsize
-			\begin{verbatim}
-				\begin{textblock}{5}(10, 4.5)
-					Inhalt
-				\end{textblock}
-			\end{verbatim}
-		\end{textblock}
-
-		\begin{textblock}{15}(0.5, 6)
-			\hrule
-			\scriptsize
-			\begin{verbatim}
-				\begin{textblock}{15}(0.5, 6)
-					\hrule
-				\end{textblock}
-			\end{verbatim}
-		\end{textblock}
-	\end{frame}
-
-	\begin{frame} 
-		\frametitle{Mehrere Folien mittels \textit{Overlays}} 
 		\begin{theorem}
 			Es gibt keine \enquote{größte} Primzahl.
 		\end{theorem} 
-		\begin{enumerate} 
-			\item<1-| alert@1> Angenommen $p$ wäre die größte Primzahl.
-			\item<2-> Sei $q$ das Produkt der ersten $p$ Zahlen. 
-			\item<3-> Dann ist $q+1$ durch keine davon teilbar.
-			\item<4-> Aber $q + 1$ ist größer als $1$ und daher durch eine Primzahl teilbar, die nicht in den ersten $p$ Zahlen liegt.
-		\end{enumerate}
 
-		\uncover<3->{\scriptsize Hinweis: Mathe ist super kompliziert!}
-
-		\vfill
-		\only<2,4>{\centering\textbf{Achtung}: Besonders wichtiger Schritt!}
-		\vfill
 	\end{frame}
 
 	
