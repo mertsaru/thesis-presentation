@@ -52,7 +52,7 @@
 % Load the package and options you like, e.g. for recommended ieee style in combination of biblatex and biber:
 \usepackage[backend=biber, bibstyle=ieee, citestyle=numeric-comp, sorting=none, natbib=true, hyperref=true, dashed=false]{biblatex}
 % Add your bibliography file(s)
-\addbibresource{literature.bib} 
+\addbibresource{/ref.bib} 
 % Dont forget to use \makebibliography where you want to put it, e.g. at the end of your presentation, after the "normal" slides:
 % \appendix
 % \makebibliography
@@ -74,6 +74,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \setbeamertemplate{caption}{\insertcaption}
+\usepackage{xcolor}
 % You can remove this package - it is only needed for the dummy content
 \usepackage{blindtext}
 
@@ -219,6 +220,7 @@
 		\begin{itemize}
 			\item<1->$R_{i}(a_{i},b_{i},c_{i},d_{i},t)$: Causal relationship between events for $i^{\text{th}}$ prototype at time $t$
 			\item<2->$\epsilon_{i}(t) = 1- R_{i}(t)$: Local learning rate of $i^{\text{th}}$ prototype at time $t$
+			\item <3-> Each prototype share learning rate with their class!
 		\end{itemize}
 		\vfill
 
@@ -236,10 +238,10 @@
 		{a_{i}(t) 
 		+ \frac{b_{i}(t)}{b_{i}(t) + d_{i}(t)}d_{i}(t) 
 		+ b_{i}(t) 
-		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{3, 7} %TODO: add citation
+		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{tak10, man21} 
 		\vspace{10pt}
-		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{3} %TODO: add citation
-		\item <3-> Has better results than other cognitive bias optimizers~\cite{something} %TODO: add citation
+		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{tak10} 
+		\item <3-> Has better results than other cognitive bias optimizers~\cite{smt} %TODO: add citation
 		\end{itemize}
 	\end{frame}
 
@@ -247,42 +249,78 @@
 
 		\begin{itemize}
 
-		\item<1-> Assumption: The events $p$ and $q$ are small, hence the correlation of any two events is unlikely, $d(t) \rightarrow \infty$~\cite{22} %TODO: add citation
-		\item <2-> Example: The correlation between any random event and you starting you car in the morning~\cite{22} %TODO: add citation
+		\item<1-> Assumption: The events $p$ and $q$ are small, hence the correlation of any two events is unlikely, $d(t) \rightarrow \infty$~\cite{hat07}
+		\item <2-> Example: The correlation between any random event and you starting you car in the morning~\cite{hat07}
 		\item<3-> $R^{\text{LSR}}_{i}(t) = \lim_{d_{i}(t) \to \infty}R^{\text{LS}}_{i}(t)$
 		\item<4-> $R^{\text{LS}}_{i}(t) = \frac{a_{i}(t) 
 		+ b_{i}(t)}
 		{a_{i}(t) 
 		+ 2b_{i}(t) 
-		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{3} %TODO: add citation
+		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$ \cite{tak10}
 		\vspace{10pt}
-		\item<5-> Satisfies ?~\cite{something} %TODO: add citation
+		\item<5-> Satisfies ?~\cite{smt} %TODO: add citation
 		\end{itemize}
 	\end{frame}
-
 	\section{Results}
-
+	\begin{frame}[fragile]{Results}{Balanced dataset}
+		\scriptsize
+		Dataset: Ionosphere dataset~\cite{ion} %TODO: add citation
+		\newline
+		
+		\begin{columns}
+			
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LS_b.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LSR_b.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_b.png}
+				\end{figure}
+			\end{column}
+		
+			
+		\end{columns}
+		
+\centering		\color{red}{Be careful with y-axis, since they do not share common size} %TODO add color red
+	
+	\end{frame}
+	
+	
 	% \begin{frame}[fragile]{Results}{Balanced dataset}
-	% 	Dataset: ? dataset~\cite{dataset}
+	% 	\scriptsize Dataset: ? Ionosphere~\cite{dataset}
 	% 	\begin{columns}
 			
 	% 		\begin{column}[T]{0.33\textwidth}
 	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS_b.png}
+	% 				\caption{LS~\cite{something}}
+	% 			\end{figure}
+
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS_b.png}
+	% 				\caption{LS~\cite{something}}
+	% 				\end{figure}
+	% 			\end{column}
+
+	% 		\begin{column}[T]{0.33\textwidth}
+	% 			\begin{figure}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/LSR_b.png}
 	% 				\caption{LS~\cite{something}}
 	% 			\end{figure}
 	% 		\end{column}
 
 	% 		\begin{column}[T]{0.33\textwidth}
 	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
+	% 				\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_b.png}
 	% 				\caption{LS~\cite{something}}
 	% 			\end{figure}
 	% 		\end{column}
@@ -320,25 +358,16 @@
 	% \end{frame}
 	
 
-	\begin{frame}{Besonderheiten}{Eventuelle Probleme, die gar keine sind}
-		\begin{itemize}
-			\item Bei überlangen (Unter-)Titeln auf der Titelseite und auf den Folien wird bei Bedarf die Schriftgröße heruntergesetzt
-			\item Sie erhalten dafür eine Paket-Warnung in der Logdatei, die Sie darauf hinweist:
-			\newline
-			\resizebox{\linewidth}{!}{\enquote{Package beamerinnerthemehsmw Warning: Font of text '\textit{<text>}' is scaled down by a factor of \textit{<factor>}}}
-			\item Sie können diese Texte ggf. anpassen, damit sie nicht skaliert werden müssen
-			\item Sie können den Warnhinweis allerdings auch einfach ignorieren
-		\end{itemize}
-
-		\begin{theorem}
-			Es gibt keine \enquote{größte} Primzahl.
-		\end{theorem} 
+	\begin{frame}{Conclusion}
+		
 
 	\end{frame}
 
 	
 	\appendix
-	\makebibliography
+	
+	\makebibliography % TODO create bib
+
 	\makethankyou
 
 \end{document}
