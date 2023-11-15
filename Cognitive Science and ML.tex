@@ -52,7 +52,7 @@
 % Load the package and options you like, e.g. for recommended ieee style in combination of biblatex and biber:
 \usepackage[backend=biber, bibstyle=ieee, citestyle=numeric-comp, sorting=none, natbib=true, hyperref=true, dashed=false]{biblatex}
 % Add your bibliography file(s)
-\addbibresource{/ref.bib} 
+\addbibresource{ref.bib} 
 % Dont forget to use \makebibliography where you want to put it, e.g. at the end of your presentation, after the "normal" slides:
 % \appendix
 % \makebibliography
@@ -94,9 +94,6 @@
 			How strongly one belives q occurs after observing p
 			\item <5-> $ 0 \leq B(q|p) \leq 1 $
 		\end{enumerate}
-	
-
-	\end{frame}
 
 	\begin{frame}[fragile]{What is Cognitive Bias?}{Types of cognitive bias we use}
 		
@@ -168,7 +165,7 @@
 			\begin{column}[T]{.15\textwidth}
 				\uncover<3->{
 					\begin{tikzpicture}
-						\draw[->, line width=3mm] (8,-10) -- (9,-10); % TODO Resize arrow
+						\draw[->, line width=3mm] (8,-9) -- (10,-9);
 						\end{tikzpicture}
 				}
 			\end{column}
@@ -192,7 +189,7 @@
 				
 				\uncover<2->{\begin{itemize}
 					\item $x$: sample
-					\item $w_{i}$: $i$th prototype
+					\item $w_{i}$: $i^{\text{th}}$ prototype
 					\item $w_{x}$: winner prototype of sample x
 					\item $L(y)$: label of y
 				\end{itemize}}
@@ -241,7 +238,7 @@
 		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{tak10, man21} 
 		\vspace{10pt}
 		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{tak10} 
-		\item <3-> Has better results than other cognitive bias optimizers~\cite{smt} %TODO: add citation
+		\item <3-> Has better results than other cognitive bias optimizers in tested datasets~\cite{tak10} 
 		\end{itemize}
 	\end{frame}
 
@@ -252,19 +249,32 @@
 		\item<1-> Assumption: The events $p$ and $q$ are small, hence the correlation of any two events is unlikely, $d(t) \rightarrow \infty$~\cite{hat07}
 		\item <2-> Example: The correlation between any random event and you starting you car in the morning~\cite{hat07}
 		\item<3-> $R^{\text{LSR}}_{i}(t) = \lim_{d_{i}(t) \to \infty}R^{\text{LS}}_{i}(t)$
-		\item<4-> $R^{\text{LS}}_{i}(t) = \frac{a_{i}(t) 
+		\vspace{10pt}
+		\item<4-> $R^{\text{LSR}}_{i}(t) = \frac{a_{i}(t) 
 		+ b_{i}(t)}
 		{a_{i}(t) 
 		+ 2b_{i}(t) 
-		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$ \cite{tak10}
+		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{tak10}
 		\vspace{10pt}
-		\item<5-> Satisfies ?~\cite{smt} %TODO: add citation
+		\item<5-> Satisfies S~\cite{tak10}
 		\end{itemize}
 	\end{frame}
 	\section{Results}
+
+	\begin{frame}[T]{Results}
+
+		\begin{itemize}
+
+		\item<1-> Compare the performance cognitive models with OGVLQ model
+		\item<2-> OGLVQ model stands for optimized GLVQ~\cite{OGLVQ}
+		\item<3-> For balanced dataset, use accuracy as score
+		\item<4-> For Imbalanced dataset, use F1 score as score
+		\end{itemize}
+	\end{frame}
+	
 	\begin{frame}[fragile]{Results}{Balanced dataset}
 		\scriptsize
-		Dataset: Ionosphere dataset~\cite{ion} %TODO: add citation
+		Dataset: Ionosphere dataset~\cite{ion} 
 		\newline
 		
 		\begin{columns}
@@ -290,83 +300,131 @@
 			
 		\end{columns}
 		
-\centering		\color{red}{Be careful with y-axis, since they do not share common size} %TODO add color red
+		\centering		\color{red}{Be careful with y-axis, since they do not share common size}
+	
+	\end{frame}
+	
+	\begin{frame}[fragile]{Results}{Balanced dataset}
+		\scriptsize
+		Dataset: Ionosphere dataset~\cite{ion} 
+		\newline
+		\begin{columns}
+			
+				\begin{column}[T]{0.33\textwidth}
+						\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LS_b_res.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+					\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LSR_b_res.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+						\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_b_res.png}
+					\end{figure}
+				\end{column}
+			
+			
+			\end{columns}
+			
+		\end{frame}
+		
+		\begin{frame}[fragile]{Results}{Imbalanced dataset}
+			\scriptsize
+			Dataset: Ionosphere dataset~\cite{ion} 
+			\newline
+			
+			\begin{columns}
+				
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LS_i.png}
+				\end{figure}
+			\end{column}
+			
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LSR_i.png}
+				\end{figure}
+			\end{column}
+			
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_i.png}
+				\end{figure}
+			\end{column}
+			
+			
+		\end{columns}
+		
+		\centering		\color{red}{Be careful with y-axis, since they do not share common size}
+		
+	\end{frame}
+	
+	\begin{frame}[fragile]{Results}{Imbalanced dataset} 
+		\scriptsize
+		Dataset: Ionosphere dataset~\cite{ion} 
+		\newline
+		\begin{columns}
+			
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LS_i_res.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/LSR_i_res.png}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}[T]{0.33\textwidth}
+				\begin{figure}
+					\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_i_res.png}
+				\end{figure}
+			\end{column}
+		
+			
+		\end{columns}
+		
 	
 	\end{frame}
 	
 	
-	% \begin{frame}[fragile]{Results}{Balanced dataset}
-	% 	\scriptsize Dataset: ? Ionosphere~\cite{dataset}
-	% 	\begin{columns}
-			
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS_b.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS_b.png}
-	% 				\caption{LS~\cite{something}}
-	% 				\end{figure}
-	% 			\end{column}
-
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LSR_b.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/OGLVQ_b.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 	\end{columns}
-	% \end{frame}
-	
-
-	% \begin{frame}[fragile]{Results}{Imbalanced dataset}
-	% 	Dataset: ? dataset~\cite{dataset}
-	% 	\begin{columns}
-			
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 		\begin{column}[T]{0.33\textwidth}
-	% 			\begin{figure}
-	% 				\includegraphics[width=0.9\textwidth]{myfigs/LS.png}
-	% 				\caption{LS~\cite{something}}
-	% 			\end{figure}
-	% 		\end{column}
-
-	% 	\end{columns}
-	% \end{frame}
-	
-
-	\begin{frame}{Conclusion}
+	\begin{frame}{fragile}{Conclusion}
 		
+		Cognitive bias optimizer ...
+		\begin{itemize}
+			\item <1-> use same learning rate for each prototype in the same class
+			\item <2-> have better learning rate graphs than OGLVQ
+			\item <3->  have better learning performance than OGLVQ
+
+		\end{itemize}
+		
+	\end{frame}
+
+	\begin{frame}{fragile}{Further}
+	
+		Need further testing on
+		\begin{itemize}
+
+			\item <1-> optimized datasets
+			\item <2-> noiser datasets
+
+		\end{itemize}
+
 
 	\end{frame}
 
 	
 	\appendix
 	
-	\makebibliography % TODO create bib
+	\makebibliography
 
 	\makethankyou
 
