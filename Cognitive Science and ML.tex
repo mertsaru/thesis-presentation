@@ -90,26 +90,31 @@
 			\item<1-> Bias created by human cognition
 			\item<2-> Has an active role in decision making 
 			\item<3-> Not always logical
-			\item<4-> Notation: $ B(q|p) $,
+			\item<4-> Notation: $ B(q|p) $,\newline
 			How strongly one belives q occurs after observing p
-			\item <5-> $ 0 \leq B(q|p) \leq 1 $
 		\end{enumerate}
+	
+	\end{frame}
 
 	\begin{frame}[fragile]{What is Cognitive Bias?}{Types of cognitive bias we use}
-		
-		\begin{itemize}	
 			
-			\item<1-> \textbf{Symmetry Bias} \newline
+			\textbf{Symmetry Bias} \newline
 			\textbf{Example}: `If the weather was rainy, then the ground is wet' \newline
-			\uncover<2->{$\implies$ `Only if the ground is wet, then the weather was rainy a while ago'~\cite{shi07}}
-			\item<3-> \textbf{Mutual Exclusitivity Bias} \newline
-			\textbf{Example}: `if you do not clean your room, then you will not be allowed to play' \newline
-			\uncover<4->{$\implies$ `if I clean up my room, then my mom will allow me to play'~\cite{hat07}}
-		
-		\end{itemize}
+			($p \implies q$)\newline
+			\uncover<2->{$\implies$ `Only if the ground is wet, then the weather was rainy a while ago'~\cite{shi07}}\newline
+			\uncover<2->{($q \implies p$)}
 	
 	\end{frame}
 	
+	\begin{frame}[fragile]{What is Cognitive Bias?}{Types of cognitive bias we use}
+			\textbf{Mutual Exclusitivity Bias} \newline
+			\textbf{Example}: `If you do not clean your room, then you will not be allowed to play' \newline
+			($ p \implies q$)\newline
+			\uncover<2->{$\implies$ `If I clean up my room, then my mom will allow me to play'~\cite{hat07}}\newline
+			\uncover<2->{($\neg p \implies \neg q$)}
+	
+	\end{frame}
+		
 	\begin{frame}[fragile]{What is Cognitive Bias?}{Illogical bias}
 		
 		$p$: `The shoe is white' \newline
@@ -129,10 +134,10 @@
 	
 		\begin{itemize}	
 			
-			\item<1-> \textbf{Symmetry Bias (S)}: \hfill $B(q|p) \sim B(p|q)$ 
-			\item<2-> \textbf{Mutual Exclusitivity Bias (MX)}: \hfill $B(q|p) \sim B(\neg q| \neg p)$ 
-			\item<3-> \textbf{The law of excluded middle (XM)}: \hfill $B(q|p) \sim 1- B(\neg q|p)$ 
-			\item<4-> \textbf{Estimation relativity (ER)}: \hfill $B(q|p) \sim 1- B(q|\neg p)$ 
+			\item<1-> \textbf{Symmetry Bias (S)}: \hfill $B (q|p) \sim B (p|q)$ 
+			\item<2-> \textbf{Mutual Exclusitivity Bias  (MX)}: \hfill $B (q|p) \sim B (\neg q| \neg p)$ 
+			\item<3-> \textbf{The law of excluded middle  (XM)}: \hfill $B (q|p) \sim 1- B (\neg q|p)$ 
+			\item<4-> \textbf{Estimation relativity  (ER)}: \hfill $B (q|p) \sim 1- B (q|\neg p)$ 
 		
 		\end{itemize}
 	
@@ -212,7 +217,7 @@
 				\captionof{figure}{Learning rate update flowchart part 2~\cite{tak10}}
 	\end{frame}
 
-	\begin{frame}{ML Implementation}{Updating learning rates}
+	\begin{frame}[fragile]{ML Implementation}{Updating learning rates}
 		\vfill
 		\begin{itemize}
 			\item<1->$R_{i}(a_{i},b_{i},c_{i},d_{i},t)$: Causal relationship between events for $i^{\text{th}}$ prototype at time $t$
@@ -237,7 +242,7 @@
 		+ b_{i}(t) 
 		+ \frac{a_{i}(t)}{a_{i}(t) + c_{i}(t)}c_{i}(t)}$~\cite{tak10, man21} 
 		\vspace{10pt}
-		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{tak10} 
+		\item<2-> Satisfies XM and loosely satisfies S, MX, and ER~\cite{tak10}
 		\item <3-> Has better results than other cognitive bias optimizers in tested datasets~\cite{tak10} 
 		\end{itemize}
 	\end{frame}
@@ -261,7 +266,7 @@
 	\end{frame}
 	\section{Results}
 
-	\begin{frame}[T]{Results}
+	\begin{frame}[fragile]{Results}
 
 		\begin{itemize}
 
@@ -269,6 +274,7 @@
 		\item<2-> OGLVQ model stands for optimized GLVQ~\cite{OGLVQ}
 		\item<3-> For balanced dataset, use accuracy as score
 		\item<4-> For Imbalanced dataset, use F1 score as score
+		\item <5-> Prototype selection is optimized for OGLVQ
 		\end{itemize}
 	\end{frame}
 	
@@ -396,9 +402,9 @@
 	\end{frame}
 	
 	
-	\begin{frame}{fragile}{Conclusion}
+	\begin{frame}[fragile]{Conclusion}
 		
-		Cognitive bias optimizer ...
+		Cognitive bias optimizer \ldots 
 		\begin{itemize}
 			\item <1-> use same learning rate for each prototype in the same class
 			\item <2-> have better learning rate graphs than OGLVQ
@@ -408,9 +414,9 @@
 		
 	\end{frame}
 
-	\begin{frame}{fragile}{Further}
+	\begin{frame}[fragile]{Further}
 	
-		Need further testing on
+		Need further testing on \ldots
 		\begin{itemize}
 
 			\item <1-> optimized datasets
